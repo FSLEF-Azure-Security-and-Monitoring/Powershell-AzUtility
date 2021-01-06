@@ -20,7 +20,7 @@
 
 param(
     [Parameter(ValueFromPipeline = $true)]
-    $Subscriptions = Get-AzSubscription -TenantId 7339ee4a-beed-4dcc-ba34-a2fe756861b6
+    $Subscriptions=Get-AzSubscription -TenantId 7339ee4a-beed-4dcc-ba34-a2fe756861b6
 )
 
 $colLAW = @()
@@ -37,5 +37,5 @@ Foreach ($Subscription in $Subscriptions){
            $colLAW += $LAWObject}
     }
 
-$colLAW | FT
+$colLAW | Format-Table
 
