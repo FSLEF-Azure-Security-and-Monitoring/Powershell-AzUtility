@@ -1,7 +1,7 @@
 
 $result = @()
 
-Get-AzADGroup | Select-Object -First 2 | ForEach-Object{
+Get-AzADGroup | ForEach-Object{
     $GRPName = $_.DisplayName
     $GRPid = $_.Id
     $GRPDesc = $_.Description
@@ -17,5 +17,8 @@ Get-AzADGroup | Select-Object -First 2 | ForEach-Object{
         }
         $result += $UserLine
     }
+}
+
+$result | ConvertTo-Json | Out-File Groups.Json
 
 
